@@ -5,7 +5,6 @@ After=chronyd.service coalesce@.service
 
 [Service]
 Type=simple
-#ExecStart=/usr/local/sbin/ptp4l -A2Hm -i eth0 --serverOnly=1 --time_stamping=p2p1step
 ExecStart=/usr/local/sbin/ptp4l -A -i %i -f /etc/linuxptp/ptp4l.conf
 CPUSchedulingPolicy=fifo
 CPUSchedulingPriority=40
