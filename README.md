@@ -5,6 +5,6 @@ WARNING: This project comes without warranty, express or implied. This project i
 
 I have laid out the methods I have used in the wiki secton. Feel free to pick and choose what you implement. Again, I cannot / will not troubleshoot a broken system for you. 
 
-The repo itself contains the individual confifuration files that I have used, including systemd unit files etc. They are stored in the same folder hierarchy that is found on the system. The relevance of each file can be found throughout the wiki.
+The repo itself contains the individual configuration files that I use, including systemd unit files etc. They are stored in the same folder hierarchy that is found on the system. The relevance of each file can be found throughout the wiki. Make sure that if you're copying these files onto your system, you match the file permissions as appropriate for each directory.
 
 You know what they say though; 'time flies when you're having fun!'
