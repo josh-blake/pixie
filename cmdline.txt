@@ -1,0 +1,1 @@
+preempt=full skew_tick=1 isolcpus=2,3 irqaffinity=0,1 nohz=off cpuidle.off=1 console=tty1 root=PARTUUID=51cecdbd-02 rootfstype=ext4,noswap fsck.repair=yes rootwait cfg80211.ieee80211_regdom=AU

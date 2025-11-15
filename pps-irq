@@ -1,0 +1,8 @@
+#!/bin/bash
+PPS_IRQ=$(ps -e | grep pps@12 | awk '{print $1}')
+taskset -p -c 3 $PPS_IRQ
+chrt -rr -p 50 $PPS_IRQ
+
+SER_IRQ=$(ps -e | grep uart-pl011 | awk '{print $1}')
+taskset -p -c 3 $SER_IRQ
+chrt -rr -p 50 $SER_IRQ

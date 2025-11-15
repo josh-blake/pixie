@@ -1,0 +1,12 @@
+[Unit]
+Description=Sets IRQ Scheduler Priority
+After=gpsd.service
+After=chronyd.service
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/usr/bin/pps-irq
+
+[Install]
+WantedBy=multi-user.target

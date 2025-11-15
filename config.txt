@@ -1,0 +1,82 @@
+# For more options and information see
+# http://rptl.io/configtxt
+os_prefix=6.17.7-v8-16k-rt/
+overlay_prefix=overlays/
+kernel=/kernel-6.17.7-v8-16k-rt.img
+
+# Some settings may impact device functionality. See link above for details
+dtoverlay=disable-wifi-pi5
+dtoverlay=disable-bt-pi5
+# Uncomment some or all of these to enable the optional hardware interfaces
+dtparam=i2c=on,i2c_baudrate=400000
+dtparam=i2s=off
+dtparam=spi=off
+
+# Disable SD Card
+dtparam=sd=off
+
+# Enable audio (loads snd_bcm2835)
+#dtparam=audio=on
+
+# Additional overlays and parameters are documented
+# /boot/firmware/overlays/README
+
+# Automatically load overlays for detected cameras
+#camera_auto_detect=1
+
+# Automatically load overlays for detected DSI displays
+#display_auto_detect=1
+
+# Automatically load initramfs files, if found
+auto_initramfs=1
+
+# Enable DRM VC4 V3D driver
+#dtoverlay=vc4-kms-v3d
+#max_framebuffers=2
+
+# Don't have the firmware create an initial video= setting in cmdline.txt.
+# Use the kernel's default instead.
+disable_fw_kms_setup=1
+
+# Run in 64-bit mode
+arm_64bit=1
+
+# Disable compensation for displays with overscan
+#disable_overscan=1
+
+#Disable Power and NIC Lights
+dtparam=pwr_led_activelow=off
+#dtparam=pwr_led_trigger=default-on
+dtparam=pwr_led_trigger=none
+dtparam=act_led_activelow=off
+dtparam=act_led_trigger=none
+dtparam=eth_led0=4
+dtparam=eth_led1=4
+
+[cm5]
+dtoverlay=dwc2,dr_mode=host
+
+[all]
+#Enable performance options
+usb_max_current_enable=1
+dtparam=pciex1=on,pciex1_gen=3
+
+#RTC Module
+dtparam=rtc=off
+dtoverlay=i2c-rtc,rv3028,addr=0x52,wakeup-source,backup-switchover-mode=3
+
+#GPS Module
+dtoverlay=pps-gpio,gpiopin=18,pull=down
+
+#Change Serial Parameters
+dtparam=uart0=on,uart0_console=off,uart0_dma=on
+dtoverlay=uart0-pi5
+#dtoverlay=miniuart-bt
+init_uart_baud=460800
+
+#Disable EEE
+dtparam=eee=off
+
+# Run as fast as firmware / board allows
+arm_boost=1
+force_turbo=1

@@ -1,0 +1,19 @@
+[Unit]
+Description=GPS (Global Positioning System) Daemon
+Documentation=man:gpsd
+Requires=gpsd.socket
+# Needed with chrony SOCK refclock
+After=setserial.service
+After=chronyd.service
+
+[Service]
+Type=forking
+CPUSchedulingPolicy=rr
+CPUSchedulingPriority=20
+CPUAffinity=3
+EnvironmentFile=-/etc/default/gpsd
+ExecStart=/usr/sbin/gpsd $GPSD_OPTIONS $OPTIONS $DEVICES
+
+[Install]
+WantedBy=multi-user.target
+Also=gpsd.socket

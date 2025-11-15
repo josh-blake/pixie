@@ -1,0 +1,12 @@
+[Unit]
+Description=Reduce Ethernet Ring Buffer Size
+After=NetworkManager-wait-online.service
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/usr/sbin/ethtool -G %i rx 256 tx 256
+ExecStop=/usr/sbin/ethtool -G %i rx 512 tx 512
+
+[Install]
+WantedBy=multi-user.target
