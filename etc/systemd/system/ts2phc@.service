@@ -7,8 +7,8 @@ After=ptp4l@.service
 [Service]
 Type=simple
 ExecStart=/usr/sbin/ts2phc -c %i -f /etc/linuxptp/ts2phc.conf
-CPUSchedulingPolicy=fifo
-CPUSchedulingPriority=40
+CPUSchedulingPolicy=rr
+CPUSchedulingPriority=10
 
 [Install]
 WantedBy=multi-user.target
