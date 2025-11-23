@@ -6,8 +6,8 @@ After=chronyd.service coalesce@.service
 [Service]
 Type=simple
 ExecStart=/usr/local/sbin/ptp4l -A -i %i -f /etc/linuxptp/ptp4l.conf
-CPUSchedulingPolicy=fifo
-CPUSchedulingPriority=40
+CPUSchedulingPolicy=rr
+CPUSchedulingPriority=10
 Restart=on-failure
 
 [Install]
