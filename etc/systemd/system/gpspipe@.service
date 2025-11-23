@@ -9,7 +9,7 @@ StandardInput=socket
 StandardOutput=socket
 CPUAffinity=3
 CPUSchedulingPolicy=rr
-CPUSchedulingPriority=30
+CPUSchedulingPriority=20
 Restart=on-failure
 
 [Install]
