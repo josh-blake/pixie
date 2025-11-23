@@ -1,0 +1,11 @@
+[Unit]
+Description=GPSD Serial Socket for %i
+
+[Socket]
+ListenFIFO=/run/gpsd.%i.sock
+NoDelay=true
+AmbientCapabilities=CAP_NET_ADMIN
+Priority=7
+
+[Install]
+WantedBy=sockets.target

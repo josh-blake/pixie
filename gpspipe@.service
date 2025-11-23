@@ -1,0 +1,12 @@
+[Unit]
+Description=gpspipe Service for %i
+Requires=gpspipe@.socket
+Requires=gpsd.service
+
+[Service]
+ExecStart=/usr/bin/gpspipe -B -R
+StandardInput=socket
+StandardOutput=socket
+
+[Install]
+WantedBy=multi-user.target
