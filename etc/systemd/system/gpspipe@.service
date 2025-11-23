@@ -5,11 +5,12 @@ Requires=gpsd.service
 
 [Service]
 ExecStart=/usr/bin/gpspipe -B -R
-CPUSchedulingPolicy=rr
-CPUSchedulingPriority=10
-Restart=on-failure
 StandardInput=socket
 StandardOutput=socket
+CPUAffinity=3
+CPUSchedulingPolicy=rr
+CPUSchedulingPriority=30
+Restart=on-failure
 
 [Install]
 WantedBy=multi-user.target
