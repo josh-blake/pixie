@@ -5,6 +5,9 @@ Requires=gpsd.service
 
 [Service]
 ExecStart=/usr/bin/gpspipe -B -R
+CPUSchedulingPolicy=rr
+CPUSchedulingPriority=10
+Restart=on-failure
 StandardInput=socket
 StandardOutput=socket
 
